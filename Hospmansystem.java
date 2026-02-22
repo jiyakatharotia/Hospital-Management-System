@@ -77,7 +77,7 @@ public class Hospmansystem {
         String appointmentDate=scanner.next();
         if(patient.getPatientById(patientId)&& doctor.getDoctorById(doctorId)){
             if(checkDoctorAvailability(doctorId,appointmentDate,connection)){
-                String appointmentQuery="Insert into appointments(patient_Id,doctor_Id,appointment_data) values(?,?,?)";
+                String appointmentQuery="Insert into appointments(patient_Id,doctor_Id,appointment_date) values(?,?,?)";
             try {
             PreparedStatement preparedStatement = connection.prepareStatement(appointmentQuery);
             preparedStatement.setInt(1, patientId);
@@ -126,4 +126,5 @@ public class Hospmansystem {
         return false;
 }
 }
+
 
